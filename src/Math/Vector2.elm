@@ -101,4 +101,3 @@ scale = Native.Math.Vector2.scale
 {-| The dot product of a and b -}
 dot : Vec2 -> Vec2 -> Float
 dot = Native.Math.Vector2.dot
-

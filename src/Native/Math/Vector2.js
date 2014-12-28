@@ -160,7 +160,35 @@ Elm.Native.Math.Vector2.make = function(elm) {
         return a[0] * b[0] + a[1] * b[1];
     };
 
-    return { 
+    /*
+     * Function: V2.mul2x2
+     *
+     * Performs r = m * v
+     *
+     * Parameters:
+     *
+     *   m - the 2x2 matrix operand
+     *   v - the 2-element vector operand
+     *   r - the optional vector to store the result in
+     *
+     * Returns:
+     *
+     *   If r is specified, returns r after performing the operation.
+     *   Otherwise, returns a new 2-element vector with the result.
+     */
+    V2.mul2x2 = function V2_mul2x2(m, v, r){
+
+        if (r == undefined){
+            r = new MJS_FLOAT_ARRAY_TYPE(2);
+        }
+
+        r[0] = m[0] * v[0] + m[1] * v[1];
+        r[1] = m[2] * v[0] + m[3] * v[1];
+
+        return r;
+    };
+
+    return {
         vec2: F2(V2.$),
         getX: V2.getX,
         getY: V2.getY,
@@ -180,7 +208,8 @@ Elm.Native.Math.Vector2.make = function(elm) {
         distanceSquared: F2(V2.distanceSquared),
         normalize: V2.normalize,
         scale: F2(V2.scale),
-        dot: F2(V2.dot)
+        dot: F2(V2.dot),
+        mul2x2: F2(V2.mul2x2)
     };
 
 };

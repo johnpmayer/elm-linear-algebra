@@ -312,7 +312,7 @@ Elm.Native.MJS.make = function(elm) {
     };
 
     /*
-     * Function: V3.lengthSquard
+     * Function: V3.lengthSquared
      *
      * Perform r = |a|*|a|.
      *
@@ -1710,7 +1710,7 @@ Elm.Native.MJS.make = function(elm) {
     };
 
     M4x4.makeBasis = function M4x4_makeBasis(vx,vy,vz) {
-        
+
         var r = new MJS_FLOAT_ARRAY_TYPE(16);
 
         r[0] = vx[0];
@@ -1734,7 +1734,7 @@ Elm.Native.MJS.make = function(elm) {
 
     };
 
-    return { 
+    return {
         vec3: F3(V3.$),
         v3getX: V3.getX,
         v3getY: V3.getY,
