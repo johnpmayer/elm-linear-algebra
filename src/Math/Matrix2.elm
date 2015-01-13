@@ -1,4 +1,5 @@
 module Math.Matrix2 where
+
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
@@ -21,6 +22,7 @@ existing matrix.
 -}
 
 import Native.Math.Matrix2
+import Math.Vector2 (Vec2)
 
 type Mat2 = Mat2
 
@@ -61,3 +63,22 @@ determinant = Native.Math.Matrix2.m2x2determinant
 -}
 makeRotate : Float -> Mat2
 makeRotate = Native.Math.Matrix2.m2x2makeRotate
+
+{-| Creates a matrix from two Vec2's representing
+the rows of the matrix.
+-}
+fromRows : Vec2 -> Vec2 -> Mat2
+fromRows = Native.Math.Matrix2.m2x2fromRows
+
+
+{-| Creates a matrix from two Vec2's representing
+the columns of the matrix.
+-}
+fromColumns : Vec2 -> Vec2 -> Mat2
+fromColumns = Native.Math.Matrix2.m2x2fromColumns
+
+{-| Converts a 2x2 matrix to a string.
+Useful for printing.
+-}
+toString : Mat2 -> String
+toString = Native.Math.Matrix2.m2x2toString

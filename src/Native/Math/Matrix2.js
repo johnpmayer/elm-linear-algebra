@@ -56,6 +56,70 @@ Elm.Native.Math.Matrix2.make = function(elm){
 
   M2x2.identity = M2x2.I;
 
+
+  /*
+   * Function M2x2.fromRows
+   *
+   * Creates a matrix from two 2-d vectors representing the rows
+   * of the created matrix.
+   *
+   * Parameters:
+   *
+   *    row0 - the first or top row of the matrix
+   *    row1 - the second or bottom row of the matrix
+   *    r - optional 2x2 matrix to store the result in
+   *
+   * Returns:
+   *
+   *    If r is specified, returns r after performing the operation.
+   *    Otherwise, returns a new 2x2 matrix with the result.
+   */
+  M2x2.fromRows = function M2x2_fromRows(row0, row1, r){
+    
+    if (r == undefined){
+      r = new MJS_FLOAT_ARRAY_TYPE(4);
+    }
+
+    r[0] = row0[0];
+    r[1] = row0[1];
+    r[2] = row1[0];
+    r[3] = row1[1];
+
+    return r;
+  };
+
+
+  /*
+   * Function M2x2.fromColumns
+   *
+   * Creates a matrix from two 2-d vectors representing the columns
+   * of the created matrix.
+   *
+   * Parameters:
+   *
+   *    column0 - the first or left column of the matrix
+   *    column1 - the second or right column of the matrix
+   *    r - optional 2x2 matrix to store the result in
+   *
+   * Returns:
+   *
+   *    If r is specified, returns r after performing the operation.
+   *    Otherwise, returns a new 2x2 matrix with the result.
+   */
+  M2x2.fromColumns = function M2x2_fromColumns(column0, column1, r){
+
+    if (r == undefined){
+      r = new MJS_FLOAT_ARRAY_TYPE(4);
+    }
+
+    r[0] = column0[0];
+    r[1] = column1[0];
+    r[2] = column0[1];
+    r[3] = column1[1];
+
+    return r;
+  };
+
   /*
    * Function: M2x2.transpose
    *
@@ -79,7 +143,7 @@ Elm.Native.Math.Matrix2.make = function(elm){
 
     r[0] = m[0];
     r[1] = m[2];
-    r[2] = m[1]:
+    r[2] = m[1];
     r[3] = m[3];
 
     return r;
@@ -225,7 +289,7 @@ Elm.Native.Math.Matrix2.make = function(elm){
   };
 
   /*
-   * Function m2x2.makeRotate
+   * Function M2x2.makeRotate
    *
    * Creates a rotation matrix by angle radians about the origin.
    *
@@ -251,15 +315,39 @@ Elm.Native.Math.Matrix2.make = function(elm){
     return r;
   };
 
+
+  /*
+   * Function M2x2.toString
+   *
+   * Converts a 2x2 matrix to a string (useful for printing)
+   *
+   * Parameters :
+   *
+   *    m - the matrix
+   *
+   * Returns :
+   *
+   *    String representation of the input matrix
+   */
+  M2x2.toString = function M2x2_toString(m){
+    var row0 = "[" + m[0].toString() + ", " + m[1].toString() + "]";
+    var row1 = "[" + m[2].toString() + ", " + m[3].toString() + "]";
+
+    return "Mat2 [" + row0 + ", " + row1 + "]";
+  };
+
   return {
     m2x2identity: M2x2.identity,
+    m2x2fromRows: F2(M2x2.fromRows),
+    m2x2fromColumns: F2(M2x2.fromColumns),
     m2x2transpose: M2x2.transpose,
     m2x2inverse : M2x2.inverse,
     m2x2mul: F2(M2x2.mul),
     m2x2add: F2(M2x2.add),
     m2x2sub: F2(M2x2.sub),
     m2x2determinant: M2x2.determinant,
-    m2x2makeRotate: M2x2.makeRotate
+    m2x2makeRotate: M2x2.makeRotate,
+    m2x2toString : M2x2.toString
   };
 
 };
