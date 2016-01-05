@@ -1,3 +1,5 @@
+# Note: The primary fork of this project can be found at [elm-community](https://github.com/elm-community/elm-linear-algebra)
+
 # Fast Linear Algebra for Elm
 
 A library for fast vector and matrix math. See the full docs [here][docs].
