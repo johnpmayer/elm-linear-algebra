@@ -1,4 +1,4 @@
-module Math.Vector2 where
+module Math.Vector2 exposing (..)
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
@@ -71,7 +71,7 @@ sub = Native.Math.Vector2.sub
 negate : Vec2 -> Vec2
 negate = Native.Math.Vector2.neg
 
-{-| The normalized direction from a to b: (a - b) / |a - b| -}
+{-| The normalized direction from b to a: (a - b) / |a - b| -}
 direction : Vec2 -> Vec2 -> Vec2
 direction = Native.Math.Vector2.direction
 
