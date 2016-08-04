@@ -1,10 +1,10 @@
-module Math.Matrix4 where
+module Math.Matrix4 exposing (..)
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All matrices are immutable.
 
 This library uses the convention that the prefix `make` is creating a new
-array, whereas without the prefix, you are applying some transform to an
+array,as without the prefix, you are applying some transform to an
 existing matrix.
 
 # Create
@@ -17,7 +17,7 @@ existing matrix.
 
 # Projections
 
-@docs makeFrustrum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
+@docs makeFrustum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
 
 # Apply Transformations
 
@@ -53,17 +53,17 @@ inverseOrthonormal = Native.MJS.m4x4inverseOrthonormal
 
 {-| Creates a matrix for a projection frustum with the given parameters.
 
-Parameters: 
+Parameters:
 
  * left - the left coordinate of the frustum
  * right- the right coordinate of the frustum
  * bottom - the bottom coordinate of the frustum
  * top - the top coordinate of the frustum
- * znear - the near z distance of the frustum 
+ * znear - the near z distance of the frustum
  * zfar - the far z distance of the frustum
 -}
-makeFrustrum : Float -> Float -> Float -> Float -> Float -> Float -> Float -> Mat4
-makeFrustrum = Native.MJS.m4x4makeFrustrum
+makeFrustum : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
+makeFrustum = Native.MJS.m4x4makeFrustum
 
 {-| Creates a matrix for a perspective projection with the given parameters.
 
@@ -84,7 +84,7 @@ Parameters:
 
  * left - the left coordinate of the frustum
  * right- the right coordinate of the frustum
- * bottom - the bottom coordinate of the frustum 
+ * bottom - the bottom coordinate of the frustum
  * top - the top coordinate of the frustum
  * znear - the near z distance of the frustum
  * zfar - the far z distance of the frustum

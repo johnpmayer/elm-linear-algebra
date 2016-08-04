@@ -1,4 +1,4 @@
-module Math.Vector3 where
+module Math.Vector3 exposing (..)
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
@@ -92,7 +92,7 @@ sub = Native.MJS.v3sub
 negate : Vec3 -> Vec3
 negate = Native.MJS.v3neg
 
-{-| The normalized direction from a to b: (a - b) / |a - b| -}
+{-| The normalized direction from b to a: (a - b) / |a - b| -}
 direction : Vec3 -> Vec3 -> Vec3
 direction = Native.MJS.v3direction
 
